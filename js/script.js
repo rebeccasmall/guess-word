@@ -13,3 +13,14 @@ const span = document.querySelector("span");
 const message = document.querySelector(".message");
 // Empty paragraph where message will appear when player gueses a letter
 const playAgainButton = document.querySelector(".play-again");
+
+const word = "magnolia";
+
+const updateWordProgress = function () {
+    const placeholders = "";
+    for (let i = 0; i < word.length; i++) {
+        console.log(word[i]);
+    }
+};
+
+updateWordProgress();
