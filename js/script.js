@@ -17,10 +17,12 @@ const playAgainButton = document.querySelector(".play-again");
 const word = "magnolia";
 
 const updateWordProgress = function () {
-    const placeholders = "";
+    let placeholders = [];
     for (let i = 0; i < word.length; i++) {
         console.log(word[i]);
+        placeholders.push("●");
     }
+    wordInProgress.innerText = placeholders.join("");
 };
 
 updateWordProgress();
