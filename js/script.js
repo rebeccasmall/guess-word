@@ -25,4 +25,11 @@ const updateWordProgress = function () {
     wordInProgress.innerText = placeholders.join("");
 };
 
-updateWordProgress();
+updateWordProgress(word);
+
+guessButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    const guess = input.value;
+    console.log(guess);
+    input.value = "";
+});
