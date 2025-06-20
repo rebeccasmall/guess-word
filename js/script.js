@@ -36,4 +36,13 @@ guessButton.addEventListener("click", function (e) {
 
 const validateInput = function (input) {
     const acceptedLetter = /[a-zA-Z]/
+    if (input === "") {
+        return `Please enter a letter.`
+    } else if (input.length > 1) {
+        return `Please enter only one letter.`
+    } else if (!input.match(acceptedLetter)) {
+        return `Please enter a valid letter from A to Z.`
+    } else {
+        return input;
+    }
 };
