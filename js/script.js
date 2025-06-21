@@ -36,18 +36,25 @@ guessButton.addEventListener("click", function (e) {
     message.textContent = "";
     const result = validateInput(guess);
     console.log(result);
+    if (result) {
+        makeGuess(result);
+        console.log("Guessed Letters Array:", guessedLetters);
+      }
 });
 
 const validateInput = function (guess) {
-    const acceptedLetter = /[a-zA-Z]/
+    const acceptedLetter = /[a-zA-Z]/;
     if (guess === "") {
-        return `Please enter a letter.`
+      message.textContent = "Please enter a letter.";
+      return null;
     } else if (guess.length > 1) {
-        return `Please enter only one letter.`
+      message.textContent = "Please enter only one letter.";
+      return null;
     } else if (!guess.match(acceptedLetter)) {
-        return `Please enter a valid letter from A to Z.`
+      message.textContent = "Please enter a valid letter from A to Z.";
+      return null;
     } else {
-        return guess;
+      return guess;
     }
 };
 
@@ -59,4 +66,5 @@ const makeGuess = function (letter) {
         guessedLetters.push(letter);
         console.log(`You guessed ${letter}`)
     }
+    console.log(guessedLetters);
 };
