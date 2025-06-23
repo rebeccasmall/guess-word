@@ -67,6 +67,15 @@ const makeGuess = function (letter) {
       guessedLetters.push(letter);
       message.textContent = `Good guess! "${letter}" added.`;
       console.log(guessedLetters);
+      showGuessedLetters();
     }
   };
   
+  const showGuessedLetters = function () {
+    guessedLetter.innerHTML = "";
+    for (const letter of guessedLetters) {
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLetter.append(li);
+      }
+  };
