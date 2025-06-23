@@ -68,6 +68,7 @@ const makeGuess = function (letter) {
       message.textContent = `Good guess! "${letter}" added.`;
       console.log(guessedLetters);
       showGuessedLetters();
+      updateWordInProgress(guessedLetters);
     }
   };
   
@@ -79,3 +80,18 @@ const makeGuess = function (letter) {
         guessedLetter.append(li);
       }
   };
+
+  const updateWordInProgress = function (guessedLetters) {
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    console.log(wordArray);
+    const updatedCharacters = [];
+
+    for (const letter of wordArray) {
+    if (guessedLetters.includes(letter)) {
+      updatedCharacters.push(letter);
+    } else {
+      updatedCharacters.push("●");
+    }
+  }
+  }
