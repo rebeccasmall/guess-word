@@ -94,4 +94,5 @@ const makeGuess = function (letter) {
       updatedCharacters.push("●");
     }
   }
+  wordInProgress.innerText = updatedCharacters.join("");
   }
