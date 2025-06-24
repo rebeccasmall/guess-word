@@ -95,4 +95,12 @@ const makeGuess = function (letter) {
     }
   }
   wordInProgress.innerText = updatedCharacters.join("");
+  checkSuccessWord();
   }
+
+  const checkSuccessWord = function () {
+    if (wordInProgress.innerText === word.toUpperCase()) {
+        message.classList.add("win");
+        message.innerHTML = `<p class="highlight">You guessed correct the word! Congrats!</p>`;
+    }
+  };
