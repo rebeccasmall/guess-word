@@ -16,6 +16,7 @@ const playAgainButton = document.querySelector(".play-again");
 
 const word = "magnolia";
 const guessedLetters = [];
+const remainingGuesses = 8;
 
 const updateWordProgress = function () {
     let placeholders = [];
@@ -98,6 +99,8 @@ const makeGuess = function (letter) {
   checkSuccessWord();
   }
 
+
+
   const checkSuccessWord = function () {
     if (wordInProgress.innerText === word.toUpperCase()) {
         message.classList.add("win");
@@ -105,4 +108,5 @@ const makeGuess = function (letter) {
     }
   };
 
-  const remainingGuesses = 8;
+
+
