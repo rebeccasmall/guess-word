@@ -104,3 +104,5 @@ const makeGuess = function (letter) {
         message.innerHTML = `<p class="highlight">You guessed correct the word! Congrats!</p>`;
     }
   };
+
+  const remainingGuesses = 8;
