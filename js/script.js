@@ -99,7 +99,15 @@ const makeGuess = function (letter) {
   checkSuccessWord();
   }
 
-
+const countRemainingGuesses = function (guess) {
+    let wordUpper = word.toUpperCase();
+    if (!wordUpper.includes(guess)) {
+        message.textContent = `Sorry, the word has no "${guess}".`;
+        remainingGuesses -= 1;
+      } else {
+        message.textContent = `Nice! The word has the letter "${guess}".`;
+      }
+};
 
   const checkSuccessWord = function () {
     if (wordInProgress.innerText === word.toUpperCase()) {
