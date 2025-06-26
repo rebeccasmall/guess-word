@@ -104,9 +104,17 @@ const countRemainingGuesses = function (guess) {
     if (!wordUpper.includes(guess)) {
         message.textContent = `Sorry, the word has no "${guess}".`;
         remainingGuesses -= 1;
-      } else {
+    } else {
         message.textContent = `Nice! The word has the letter "${guess}".`;
-      }
+    }
+    if (remainingGuesses === 0) {
+        message.textContent = `Game over! The correct word was ${word.toUpperCase()}`
+        span.textContent = "0";
+    } else if (remainingGuesses === 1) {
+        span.textContent = "1 guess"
+    } else {
+        span.textContent = `${remainingGuesses} guesses`;
+    }
 };
 
   const checkSuccessWord = function () {
