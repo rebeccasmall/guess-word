@@ -16,7 +16,7 @@ const playAgainButton = document.querySelector(".play-again");
 
 const word = "magnolia";
 const guessedLetters = [];
-const remainingGuesses = 8;
+let remainingGuesses = 8;
 
 const updateWordProgress = function () {
     let placeholders = [];
@@ -69,6 +69,7 @@ const makeGuess = function (letter) {
       message.textContent = `Good guess! "${letter}" added.`;
       console.log(guessedLetters);
       showGuessedLetters();
+      countRemainingGuesses(letter);
       updateWordInProgress(guessedLetters);
     }
   };
