@@ -14,16 +14,25 @@ const message = document.querySelector(".message");
 // Empty paragraph where message will appear when player gueses a letter
 const playAgainButton = document.querySelector(".play-again");
 
-const word = "magnolia";
+let word = "";
 const guessedLetters = [];
 let remainingGuesses = 8;
+let wordArray = [];
 
 const getWord = async function () {
     const res = await fetch ("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const data = await res.text();
     console.log(data);
-    const wordArray = word.split("/n");
+    wordArray = data.split("\n");
+    selectRandomWord();
 }
+
+const selectRandomWord = function () {
+    const randomIndex = Math.floor(Math.random() * wordArray.length);
+    const randomWord = wordArray[randomIndex].trim();
+    word = randomWord;
+    updateWordProgress(word);
+};
 
 getWord();
 
@@ -133,6 +142,4 @@ const countRemainingGuesses = function (guess) {
         message.innerHTML = `<p class="highlight">You guessed correct the word! Congrats!</p>`;
     }
   };
-
-
 
