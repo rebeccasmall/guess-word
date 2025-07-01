@@ -45,8 +45,6 @@ const updateWordProgress = function () {
     wordInProgress.innerText = placeholders.join("");
 };
 
-updateWordProgress(word);
-
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
     const guess = input.value;
@@ -151,3 +149,17 @@ const startOver = function () {
     playAgainButton.classList.remove("hide");
 };
 
+playAgainButton.addEventListener("click", function () {
+    message.classList.remove("win");
+    remaining.innerText = "";
+    guessedLetters.length = 0;
+    guessedLetter.innerHTML = "";
+    remainingGuesses = 8;
+    span.innerText = `${remainingGuesses} guesses`;
+    input.value = "";
+    remaining.classList.remove("hide");
+    guessButton.classList.remove("hide");
+    guessedLetter.classList.remove("hide");
+    playAgainButton.classList.add("hide");
+    getWord();
+});
